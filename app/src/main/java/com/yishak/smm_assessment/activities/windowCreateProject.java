@@ -1,8 +1,10 @@
-package com.yishak.smm_assessment;
+package com.yishak.smm_assessment.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.yishak.smm_assessment.R;
 
 public class windowCreateProject extends AppCompatActivity {
 

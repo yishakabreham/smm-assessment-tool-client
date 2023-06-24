@@ -1,14 +1,16 @@
-package com.yishak.smm_assessment;
+package com.yishak.smm_assessment.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class windowSubPractices extends AppCompatActivity {
+import com.yishak.smm_assessment.R;
+
+public class windowDashboard extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_window_sub_practices);
+        setContentView(R.layout.activity_window_dashboard);
     }
 }

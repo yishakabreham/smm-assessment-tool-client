@@ -12,13 +12,13 @@
         android:theme="@style/Theme.Smmassessment"
         tools:targetApi="31">
         <activity
-            android:name=".windowSubPractices"
+            android:name=".activities.windowSubPractices"
             android:exported="false" />
         <activity
-            android:name=".windowCreateProject"
+            android:name=".activities.windowCreateProject"
             android:exported="false" />
         <activity
-            android:name=".windowDashboard"
+            android:name=".activities.windowDashboard"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
