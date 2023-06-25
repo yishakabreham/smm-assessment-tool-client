@@ -1,15 +1,19 @@
 package com.yishak.smm_assessment.network;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class API
 {
-    public static APIInterface configurations(String token)
+    public static APIInterface detail()
     {
         Retrofit retrofit = null;
-        TokenInterceptor interceptor = new TokenInterceptor(token);
+//        TokenInterceptor interceptor = new TokenInterceptor(token);
+
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(interceptor)
@@ -17,7 +21,7 @@ public class API
 
         retrofit = new Retrofit.Builder()
                 .client(client)
-                .baseUrl("http://192.168.1.155:8101/Miscellaneous/")
+                .baseUrl("http://192.168.0.100:3000/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
