@@ -1,6 +1,7 @@
 package com.yishak.smm_assessment.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.yishak.smm_assessment.R;
-import com.yishak.smm_assessment.dtos.SubPractice;
+import com.yishak.smm_assessment.network.pojo._SubPractice;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,13 +20,18 @@ import java.util.List;
 public class SubPracticeAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater inflater;
-    private List<SubPractice> subPractices;
+    private List<_SubPractice> subPractices;
     public static ArrayList<String> selectedAnswers;
 
-    public SubPracticeAdapter(Context context, List<SubPractice> subPractices)
+    public SubPracticeAdapter(Context context, List<_SubPractice> subPractices)
     {
         this.context = context;
         this.subPractices = subPractices;
+
+        selectedAnswers = new ArrayList<>();
+        for (int i = 0; i < subPractices.size(); i++) {
+            selectedAnswers.add("Not Attempted");
+        }
 
         inflater = (LayoutInflater)context.
                 getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -59,12 +65,13 @@ public class SubPracticeAdapter extends BaseAdapter {
         holder.impl4 = rowView.findViewById(R.id.imp4);
         holder.impl5 = rowView.findViewById(R.id.imp5);
 
-        holder.subPracticeDesc.setText(subPractices.get(i).description);
+        holder.subPracticeDesc.setText(subPractices.get(i).getDescription());
         holder.impl1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked)
                     selectedAnswers.set(i, "1");
+                Log.i("Selected", String.valueOf(selectedAnswers.size()));
             }
         });
         holder.impl2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

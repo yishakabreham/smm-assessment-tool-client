@@ -10,6 +10,9 @@ public class _Phase
     @SerializedName("phase_id")
     @Expose
     private Integer phase_id;
+    @SerializedName("name")
+    @Expose
+    private String name;
     @SerializedName("description")
     @Expose
     private String description;
@@ -24,7 +27,13 @@ public class _Phase
     public void setPhase_id(Integer phase_id) {
         this.phase_id = phase_id;
     }
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
     public String getDescription() {
         return description;
     }

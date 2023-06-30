@@ -5,18 +5,110 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/btnOk"
+    <RelativeLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/custom_login_button"
-        android:fontFamily="@font/open_sans_regular"
-        android:text="Confirm Passenger Detail / ያረጋግጡ"
-        android:textColor="@color/white" />
-
+        android:layout_height="150dp"
+        android:background="@drawable/custom_relative_layout">
+        <RelativeLayout
+            android:id="@+id/rlUserPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/profilePicIV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:background="@android:color/white"
+                android:padding="5dp"
+                app:srcCompat="@drawable/logo_transparent_background" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:layout_marginTop="-2dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/rLDummy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_relative_layout_color"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:id="@+id/txtDummy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:text="A tool for assessing the sustainability maturity of your software development process"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:gravity="center">
+                </TextView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rlDummy2"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/lightGray"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="8dp"
+                android:layout_below="@id/rLDummy">
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rlDummy2"
+                android:id="@+id/rlDummy3">
+                <TextView
+                    android:id="@+id/txtDummy2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:text="How the tool works"
+                    android:textColor="@color/st_patrick_blue"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:gravity="center">
+                </TextView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rlDummy3">
+                <TextView
+                    android:id="@+id/txtDummy3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:text="First Register/Login -> Create a Project -> Make Assessment/Take Maturity Level Test -> Browse Saved Maturity Level Tests"
+                    android:textColor="@color/emerald_green"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:gravity="center">
+                </TextView>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

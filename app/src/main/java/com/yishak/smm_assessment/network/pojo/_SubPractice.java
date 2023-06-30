@@ -12,7 +12,7 @@ public class _SubPractice
     private Integer sub_practice_id;
     @SerializedName("description")
     @Expose
-    private Integer description;
+    private String description;
     @SerializedName("evolution_level")
     @Expose
     private Integer evolution_level;
@@ -25,11 +25,11 @@ public class _SubPractice
         this.sub_practice_id = sub_practice_id;
     }
 
-    public Integer getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Integer description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

@@ -24,4 +24,6 @@
 
     <color name="snow">#FFFAFA</color>
     <color name="linen">#FAF0E6</color>
+    <color name="emerald_green">#50C878</color>
+    <color name="light_green">#97c37e</color>
 </resources>

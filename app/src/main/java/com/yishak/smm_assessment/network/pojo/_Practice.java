@@ -12,7 +12,7 @@ public class _Practice
     private Integer practice_id;
     @SerializedName("description")
     @Expose
-    private Integer description;
+    private String description;
     @SerializedName("sub")
     @Expose
     private ArrayList<_SubPractice> subPractices;
@@ -25,11 +25,11 @@ public class _Practice
         this.practice_id = practice_id;
     }
 
-    public Integer getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Integer description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

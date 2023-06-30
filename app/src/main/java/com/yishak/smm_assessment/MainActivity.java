@@ -17,13 +17,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ok = findViewById(R.id.btnOk);
-        ok.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, windowSubPractices.class);
-                startActivity(intent);
-            }
-        });
+//        ok = findViewById(R.id.btnOk);
+//        ok.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, windowSubPractices.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 }

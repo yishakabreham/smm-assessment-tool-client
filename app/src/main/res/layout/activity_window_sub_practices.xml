@@ -12,9 +12,73 @@
         android:theme="@style/ToolBarStyle"
         android:background="@color/colorPrimary">
     </androidx.appcompat.widget.Toolbar>
+    <RelativeLayout
+        android:layout_below="@id/tbSubPractices"
+        android:id="@+id/rLInformation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ghostWhite"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="5dp">
+        <RelativeLayout
+            android:id="@+id/imgInformation"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/icon_information"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp">
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/txtSubInformation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="This window displays a list of practices within the requirement engineering phase. Before moving on to the next phase, please ensure that you have completed the selection."
+            android:textColor="@color/blueBlackDark"
+            android:textSize="11dp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/imgInformation">
+        </TextView>
+        <TextView
+            android:id="@+id/txtSubInformationCounter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="0/12 selected"
+            android:textColor="@color/blueBlackDark"
+            android:textSize="11dp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/imgInformation"
+            android:layout_below="@id/txtSubInformation"
+            android:layout_alignLeft="@id/txtSubInformation"
+            android:layout_marginBottom="4dp">
+        </TextView>
+    </RelativeLayout>
     <ListView
         android:id="@+id/lstSubPractices"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tbSubPractices"/>
+        android:layout_below="@id/rLInformation"/>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/add_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/st_patrick_blue"
+        android:text="Next"
+        android:textColor="@color/white"
+        app:icon="@drawable/icon_right_arrow"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:theme="@style/MyMaterialTheme"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>
