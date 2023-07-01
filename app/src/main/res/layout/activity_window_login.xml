@@ -25,7 +25,7 @@
                     android:text="Welcome"
                     android:textAllCaps="true"
                     android:textColor="@color/emerald_green"
-                    android:textSize="35sp" />
+                    android:textSize="40sp" />
                 <TextView
                     android:id="@+id/txtWelcome2"
                     android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
                     android:text="Sign in to continue"
                     android:textAllCaps="true"
                     android:textColor="@color/light_green"
-                    android:textSize="13sp" />
+                    android:textSize="16sp" />
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/rlUserName"
@@ -59,7 +59,8 @@
                         android:fontFamily="@font/open_sans_regular"
                         android:text="Username"
                         android:textColor="@color/emerald_green"
-                        android:textSize="14dp" />
+                        android:textSize="16dp"
+                        android:textStyle="bold"/>
                     <ImageView
                         android:id="@+id/imageUser"
                         android:layout_width="30dp"
@@ -102,7 +103,8 @@
                         android:fontFamily="@font/open_sans_regular"
                         android:text="Password"
                         android:textColor="@color/emerald_green"
-                        android:textSize="14dp" />
+                        android:textSize="16dp"
+                        android:textStyle="bold"/>
                     <ImageView
                         android:id="@+id/imagePassword"
                         android:layout_width="30dp"
@@ -125,33 +127,65 @@
                         android:textSize="16dp" />
                 </RelativeLayout>
             </RelativeLayout>
-            <CheckBox
-                android:id="@+id/cbxRemember"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/rlB"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rlPassword"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                android:fontFamily="@font/open_sans_regular"
-                android:text="Remember me"
-                android:textColor="@color/st_patrick_blue"
-                android:textSize="14dp" />
-
-            <Button
-                android:id="@+id/btnLogin"
+                android:layout_marginTop="10dp">
+                <CheckBox
+                    android:id="@+id/cbxRemember"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:text="Remember me"
+                    android:textColor="@color/st_patrick_blue"
+                    android:textSize="16dp" />
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/cbxRemember"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/custom_relative_layout_color"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:text="Login"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+            </RelativeLayout>
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@id/cbxRemember"
-                android:layout_marginStart="10dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rlB"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/custom_relative_layout_color"
-                android:fontFamily="@font/open_sans_regular"
-                android:text="Login"
-                android:textAllCaps="true"
-                android:textColor="@color/white"
-                android:textSize="16dp" />
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/txtDont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:text="Don't have account?"
+                    android:textColor="@color/st_patrick_blue"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="11dp"/>
+                <TextView
+                    android:id="@+id/txtRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:textColor="@color/st_patrick_blue"
+                    android:textSize="16sp"
+                    android:layout_toRightOf="@id/txtDont"
+                    android:layout_marginLeft="5dp"
+                    android:text="Register"/>
+            </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

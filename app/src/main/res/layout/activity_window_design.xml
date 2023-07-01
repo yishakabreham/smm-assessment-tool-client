@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.phases.windowRequirements">
+    tools:context=".activities.phases.windowDesign">
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tbSubPractices"
+        android:id="@+id/tbDesignPhase"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_size"
         android:theme="@style/ToolBarStyle"
         android:background="@color/colorPrimary">
     </androidx.appcompat.widget.Toolbar>
     <RelativeLayout
-        android:layout_below="@id/tbSubPractices"
+        android:layout_below="@id/tbDesignPhase"
         android:id="@+id/rLInformation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
             android:layout_marginLeft="8dp">
         </RelativeLayout>
         <TextView
-            android:id="@+id/txtSubInformation"
+            android:id="@+id/txtInformation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -38,14 +38,14 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/open_sans_regular"
-            android:text="This window displays a list of practices within the requirement engineering phase. Before moving on to the next phase, please ensure that you have completed the selection."
+            android:text="This window displays a list of practices within the design phase. Before moving on to the next phase, please ensure that you have completed the selection."
             android:textColor="@color/blueBlackDark"
             android:textSize="11dp"
             android:textStyle="bold"
             android:layout_toRightOf="@id/imgInformation">
         </TextView>
         <TextView
-            android:id="@+id/txtSubInformationCounter"
+            android:id="@+id/txtDesignInformationCounter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
@@ -54,18 +54,18 @@
             android:textSize="11dp"
             android:textStyle="bold"
             android:layout_toRightOf="@id/imgInformation"
-            android:layout_below="@id/txtSubInformation"
-            android:layout_alignLeft="@id/txtSubInformation"
+            android:layout_below="@id/txtInformation"
+            android:layout_alignLeft="@id/txtInformation"
             android:layout_marginBottom="4dp">
         </TextView>
     </RelativeLayout>
     <ListView
-        android:id="@+id/lstSubPractices"
+        android:id="@+id/lstDesignPhase"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/rLInformation"/>
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/fabSubNext"
+        android:id="@+id/fabDesignNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"

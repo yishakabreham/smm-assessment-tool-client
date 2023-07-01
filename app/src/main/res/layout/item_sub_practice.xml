@@ -7,7 +7,6 @@
         android:layout_width="match_parent"
         android:background="@drawable/custom_relative_layout"
         android:layout_margin="10dp">
-
         <TextView
             android:id="@+id/txtSubDescription"
             android:layout_width="match_parent"
@@ -20,7 +19,7 @@
             android:fontFamily="@font/open_sans_regular"
             android:text="Performance requirements should be established, prioritizing energy efficiency and resource optimization, with the aim of reducing overall energy consumption and resource usage in the software system."
             android:textColor="@color/blueBlackDark"
-            android:textSize="11dp"
+            android:textSize="16dp"
             android:textStyle="bold"></TextView>
         <RadioGroup
             android:layout_width="match_parent"
