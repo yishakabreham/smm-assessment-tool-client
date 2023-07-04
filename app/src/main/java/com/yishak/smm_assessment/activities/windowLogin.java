@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.yishak.smm_assessment.R;
+import com.yishak.smm_assessment.common.Commons;
+
+import java.util.ArrayList;
 
 public class windowLogin extends AppCompatActivity {
 
@@ -21,6 +24,9 @@ public class windowLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_window_login);
+
+        Commons.commonBufferList = new ArrayList<>();
+        Commons.newProjectList = new ArrayList<>();
 
         btnLogin = findViewById(R.id.btnLogin);
         txtRegister = findViewById(R.id.txtRegister);

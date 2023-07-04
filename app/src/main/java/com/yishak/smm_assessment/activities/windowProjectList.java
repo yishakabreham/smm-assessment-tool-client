@@ -3,17 +3,14 @@ package com.yishak.smm_assessment.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.transition.Visibility;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.yishak.smm_assessment.R;
 import com.yishak.smm_assessment.adapters.ProjectListAdapter;
-import com.yishak.smm_assessment.adapters.SubPracticeAdapter;
 import com.yishak.smm_assessment.model.NewProject;
 import com.yishak.smm_assessment.model.Project;
-import com.yishak.smm_assessment.network.pojo._SubPractice;
 
 import java.util.ArrayList;
 import java.util.List;

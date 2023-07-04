@@ -18,7 +18,8 @@
         android:layout_below="@id/tbCreateProject">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
             <RelativeLayout
                 android:id="@+id/rlTin"
                 android:layout_width="match_parent"
@@ -30,9 +31,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/custom_relative_layout"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true">
+                    android:background="@drawable/custom_relative_layout">
                     <TextView
                         android:id="@+id/lblTIN"
                         android:layout_width="wrap_content"
@@ -43,17 +42,15 @@
                         android:text="Project Name *"
                         android:textColor="@color/blueBlackDark"
                         android:textSize="16dp" />
-
                     <ImageView
                         android:id="@+id/imageSearch"
                         android:layout_width="30dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/lblTIN"
                         android:layout_alignLeft="@id/lblTIN"
-                        android:src="@drawable/icon_name" />
-
-                    <AutoCompleteTextView
-                        android:id="@+id/txtFirstName"
+                        android:src="@drawable/icon_clipboard" />
+                    <EditText
+                        android:id="@+id/txtProjectName"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_alignTop="@id/imageSearch"
@@ -61,11 +58,11 @@
                         android:layout_toRightOf="@id/imageSearch"
                         android:background="@android:color/transparent"
                         android:fontFamily="@font/open_sans_regular"
-                        android:hint="Enter Name of the Project"
-                        android:inputType="number"
                         android:maxLength="25"
-                        android:textCursorDrawable="@null"
-                        android:textSize="16dp" />
+                        android:hint="Enter Name of the Project"
+                        android:textSize="16dp"
+                        android:gravity="center|left"
+                        android:textColor="@color/blueBlack"/>
                 </RelativeLayout>
             </RelativeLayout>
             <RelativeLayout
@@ -80,9 +77,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/custom_relative_layout"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true">
+                    android:background="@drawable/custom_relative_layout">
                     <TextView
                         android:id="@+id/lblUserName"
                         android:layout_width="wrap_content"
@@ -100,18 +95,20 @@
                         android:layout_below="@id/lblUserName"
                         android:layout_alignLeft="@id/lblUserName"
                         android:src="@drawable/icon_user" />
-                    <AutoCompleteTextView
-                        android:id="@+id/txtMiddleName"
+                    <EditText
+                        android:id="@+id/txtClientName"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_alignTop="@id/imageUser"
                         android:layout_marginLeft="20dp"
                         android:layout_toRightOf="@id/imageUser"
+                        android:layout_alignTop="@id/imageUser"
                         android:background="@android:color/transparent"
                         android:fontFamily="@font/open_sans_regular"
                         android:hint="Enter Name of the Client"
-                        android:textCursorDrawable="@null"
-                        android:textSize="16dp" />
+                        android:maxLength="25"
+                        android:textSize="16dp"
+                        android:gravity="center|left"
+                        android:textColor="@color/blueBlack"/>
                 </RelativeLayout>
             </RelativeLayout>
             <RelativeLayout
@@ -143,20 +140,25 @@
                         android:layout_below="@id/lblPassword"
                         android:layout_alignLeft="@id/lblPassword"
                         android:src="@drawable/icon_calendar_"/>
-                    <Button
+                    <EditText
                         android:id="@+id/txtProjectStartDate"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_toRightOf="@id/imagePassword"
                         android:layout_marginLeft="20dp"
-                        android:hint="Enter Last Name"
+                        android:hint="Enter Project Kickoff Date"
                         android:fontFamily="@font/open_sans_regular"
                         android:textSize="16dp"
+                        android:textColor="@color/blueBlack"
                         android:background="@android:color/transparent"
                         android:textCursorDrawable="@null"
                         android:layout_alignTop="@id/imagePassword"
                         android:inputType="text"
-                        android:gravity="left|center"/>
+                        android:gravity="left|center"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"/>
                 </RelativeLayout>
             </RelativeLayout>
             <RelativeLayout
@@ -188,20 +190,25 @@
                         android:layout_below="@id/lblPhone"
                         android:layout_alignLeft="@id/lblPhone"
                         android:src="@drawable/icon_calendar_"/>
-                    <Button
+                    <EditText
                         android:id="@+id/txtProjectEndDate"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_toRightOf="@id/imagePhone"
                         android:layout_marginLeft="20dp"
-                        android:hint="Enter Phone Number"
+                        android:hint="Enter Project Date of Completion"
                         android:fontFamily="@font/open_sans_regular"
                         android:textSize="16dp"
                         android:background="@android:color/transparent"
                         android:textCursorDrawable="@null"
                         android:layout_alignTop="@id/imagePhone"
                         android:inputType="text"
-                        android:gravity="left|center"/>
+                        android:gravity="left|center"
+                        android:textColor="@color/blueBlack"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"/>
                 </RelativeLayout>
             </RelativeLayout>
             <RelativeLayout
@@ -213,9 +220,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/custom_relative_layout"
-                    android:layout_margin="10dp"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true">
+                    android:layout_margin="10dp">
                     <TextView
                         android:id="@+id/lblOther"
                         android:layout_width="wrap_content"
@@ -233,7 +238,7 @@
                         android:layout_below="@id/lblOther"
                         android:layout_alignLeft="@id/lblOther"
                         android:src="@drawable/icon_miscellaneous"/>
-                    <AutoCompleteTextView
+                    <EditText
                         android:id="@+id/txtOther"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -245,7 +250,9 @@
                         android:background="@android:color/transparent"
                         android:textCursorDrawable="@null"
                         android:layout_alignTop="@id/imageOther"
-                        android:inputType="text"/>
+                        android:inputType="text"
+                        android:gravity="center|left"
+                        android:textColor="@color/blueBlack"/>
                 </RelativeLayout>
             </RelativeLayout>
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton

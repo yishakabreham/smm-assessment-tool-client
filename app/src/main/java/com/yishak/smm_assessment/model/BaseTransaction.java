@@ -1,20 +1,15 @@
 package com.yishak.smm_assessment.model;
 
-public class NewProject
+import java.util.List;
+
+public class BaseTransaction
 {
     private String projectName;
     private String projectClient;
-    private String dateCreated;
+    private String projectStartDate;
     private String projectEndDate;
-    private String remark;
-
-    public NewProject(String projectName, String projectClient, String dateCreated, String end, String remark) {
-        this.projectName = projectName;
-        this.projectClient = projectClient;
-        this.dateCreated = dateCreated;
-        this.projectEndDate = end;
-        this.remark = remark;
-    }
+    private String projectRemark;
+    private List<Buffer> bufferList;
 
     public String getProjectName() {
         return projectName;
@@ -32,12 +27,12 @@ public class NewProject
         this.projectClient = projectClient;
     }
 
-    public String getDateCreated() {
-        return dateCreated;
+    public String getProjectStartDate() {
+        return projectStartDate;
     }
 
-    public void setDateCreated(String dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setProjectStartDate(String projectStartDate) {
+        this.projectStartDate = projectStartDate;
     }
 
     public String getProjectEndDate() {
@@ -48,11 +43,19 @@ public class NewProject
         this.projectEndDate = projectEndDate;
     }
 
-    public String getRemark() {
-        return remark;
+    public String getProjectRemark() {
+        return projectRemark;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public void setProjectRemark(String projectRemark) {
+        this.projectRemark = projectRemark;
+    }
+
+    public List<Buffer> getBufferList() {
+        return bufferList;
+    }
+
+    public void setBufferList(List<Buffer> bufferList) {
+        this.bufferList = bufferList;
     }
 }

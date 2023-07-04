@@ -16,20 +16,27 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".activities.phases.windowTesting"
+            android:name=".windowFinal"
             android:exported="false" />
+        <activity
+            android:name=".activities.phases.windowTesting"
+            android:exported="false"
+            android:theme="@style/MyMaterialTheme" />
         <activity
             android:name=".activities.phases.windowDeployment"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/MyMaterialTheme" />
         <activity
             android:name=".activities.phases.windowImplementation"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/MyMaterialTheme" />
         <activity
             android:name=".activities.windowProjectList"
             android:exported="false" />
         <activity
             android:name=".activities.phases.windowDesign"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/MyMaterialTheme" />
         <activity
             android:name=".activities.windowLogin"
             android:exported="true">
@@ -45,7 +52,8 @@
             android:theme="@style/MyMaterialTheme" />
         <activity
             android:name=".activities.windowCreateProject"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/MyMaterialTheme" />
         <activity
             android:name=".activities.windowDashboard"
             android:exported="false" />

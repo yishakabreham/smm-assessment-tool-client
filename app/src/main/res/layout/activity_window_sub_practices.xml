@@ -19,7 +19,8 @@
         android:layout_height="wrap_content"
         android:background="@color/ghostWhite"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="5dp">
+        android:layout_marginBottom="5dp"
+        android:paddingBottom="5dp">
         <RelativeLayout
             android:id="@+id/imgInformation"
             android:layout_width="44dp"
@@ -40,7 +41,7 @@
             android:fontFamily="@font/open_sans_regular"
             android:text="This window displays a list of practices within the requirement engineering phase. Before moving on to the next phase, please ensure that you have completed the selection."
             android:textColor="@color/blueBlackDark"
-            android:textSize="11dp"
+            android:textSize="14dp"
             android:textStyle="bold"
             android:layout_toRightOf="@id/imgInformation">
         </TextView>
@@ -49,9 +50,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
-            android:text="0/12 selected"
-            android:textColor="@color/blueBlackDark"
-            android:textSize="11dp"
+            android:text=""
+            android:textColor="@color/st_patrick_blue"
+            android:textSize="16dp"
             android:textStyle="bold"
             android:layout_toRightOf="@id/imgInformation"
             android:layout_below="@id/txtSubInformation"
@@ -63,13 +64,13 @@
         android:id="@+id/lstSubPractices"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/rLInformation"/>
+        android:layout_below="@id/rLInformation" />
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fabSubNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="60dp"
         android:backgroundTint="@color/st_patrick_blue"
         android:text="Next"
         android:textColor="@color/white"

@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.yishak.smm_assessment.R;
@@ -42,7 +44,6 @@ public class ProjectListAdapter extends BaseAdapter
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        Holder holder = new Holder();
         View rowView;
 
         rowView = inflater.inflate(R.layout.item_project, null);
