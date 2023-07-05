@@ -1,6 +1,7 @@
 package com.yishak.smm_assessment.network;
 
 import com.yishak.smm_assessment.model.BaseTransaction;
+import com.yishak.smm_assessment.model._project;
 import com.yishak.smm_assessment.network.pojo._Phase;
 
 import java.util.ArrayList;
@@ -14,6 +15,10 @@ public interface APIInterface
 {
     @GET("getAll")
     Call<ArrayList<_Phase>> getDetails();
+    @GET("getAllProjects")
+    Call<ArrayList<BaseTransaction>> getAllProjects();
     @POST("postTransaction")
-    Call<Boolean> saveTransaction(@Body BaseTransaction baseTransaction);
+    Call<BaseTransaction> saveTransaction(@Body BaseTransaction baseTransaction);
+    @POST("getProject")
+    Call<BaseTransaction> getProject(@Body _project id);
 }

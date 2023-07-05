@@ -2,20 +2,19 @@ package com.yishak.smm_assessment.model;
 
 public class NewProject
 {
+    private String id;
     private String projectName;
     private String projectClient;
     private String dateCreated;
     private String projectEndDate;
     private String remark;
 
-    public NewProject(String projectName, String projectClient, String dateCreated, String end, String remark) {
-        this.projectName = projectName;
-        this.projectClient = projectClient;
-        this.dateCreated = dateCreated;
-        this.projectEndDate = end;
-        this.remark = remark;
+    public String getId() {
+        return id;
     }
-
+    public void setId(String id) {
+        this.id = id;
+    }
     public String getProjectName() {
         return projectName;
     }

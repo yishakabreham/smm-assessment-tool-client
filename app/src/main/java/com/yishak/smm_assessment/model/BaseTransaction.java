@@ -4,12 +4,21 @@ import java.util.List;
 
 public class BaseTransaction
 {
+    private String _id;
     private String projectName;
     private String projectClient;
     private String projectStartDate;
     private String projectEndDate;
     private String projectRemark;
     private List<Buffer> bufferList;
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
 
     public String getProjectName() {
         return projectName;

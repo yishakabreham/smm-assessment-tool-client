@@ -50,7 +50,7 @@ public class windowProjectList extends AppCompatActivity
     }
     private void inflateList(List<Project> projects)
     {
-        adapter = new ProjectListAdapter(this, projects);
-        projectsList.setAdapter(adapter);
+//        adapter = new ProjectListAdapter(this, projects);
+//        projectsList.setAdapter(adapter);
     }
 }

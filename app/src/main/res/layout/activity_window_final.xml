@@ -1,9 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.windowFinal">
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbFinal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_size"
+        android:theme="@style/ToolBarStyle"
+        android:background="@color/colorPrimary"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tbFinal"
+        android:background="@color/white">
+        <RelativeLayout
+            android:id="@+id/dummy1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/white">
+            <RelativeLayout
+                android:id="@+id/profileLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="1dp"
+                android:layout_alignParentLeft="true">
+                <RelativeLayout
+                    android:id="@+id/rlUserPhoto"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp">
+                    <ImageView
+                        android:id="@+id/profilePicIV"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:background="@android:color/white"
+                        android:padding="5dp"
+                        app:srcCompat="@drawable/icon_checkmark" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="123dp"
+                    android:layout_toRightOf="@id/rlUserPhoto"
+                    android:background="@drawable/custom_relative_layout">
+                    <RelativeLayout
+                        android:id="@+id/rlD0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp">
+                        <TextView
+                            android:id="@+id/compTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/open_sans_regular"
+                            android:text="Vincit"
+                            android:textColor="@color/st_patrick_blue"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/userNTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/compTV"
+                            android:layout_alignLeft="@id/compTV"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/open_sans_regular"
+                            android:text="User: Admin"
+                            android:textColor="@color/blueBlack"
+                            android:textSize="16dp" />
+                        <TextView
+                            android:id="@+id/userRoleTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/userNTV"
+                            android:layout_alignLeft="@id/compTV"
+                            android:fontFamily="@font/open_sans_regular"
+                            android:text="Role: System Administrator"
+                            android:textColor="@color/blueBlack"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/dateEn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/userRoleTV"
+                            android:layout_alignLeft="@id/compTV"
+                            android:fontFamily="@font/open_sans_regular"
+                            android:text="Date and Time: Tuesday October 27, 2020"
+                            android:textColor="@color/blueBlack"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/dummy2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dummy1">
+            <TextView
+                android:id="@+id/tDummy1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="Congratulations, you made It!"
+                android:textColor="@color/emerald_green"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:textAllCaps="true"/>
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:background="@android:color/white"
+                app:srcCompat="@drawable/icon_celebration"
+                android:layout_below="@id/tDummy1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dummy2"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fabShowResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/emerald_green"
+                android:text="show Result"
+                android:textColor="@color/white"
+                app:iconTint="@color/white"
+                android:theme="@style/MyMaterialTheme"
+                android:gravity="center"/>
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fabHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_toRightOf="@id/fabShowResult"
+                android:backgroundTint="@color/emerald_green"
+                android:text="home"
+                android:textColor="@color/white"
+                app:iconTint="@color/white"
+                android:theme="@style/MyMaterialTheme"
+                android:gravity="center"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true">
+            <ImageView
+                android:id="@+id/copy"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:src="@drawable/icon_copyright"/>
+            <TextView
+                android:id="@+id/arr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/copy"
+                android:text="all rights reserved"
+                android:fontFamily="@font/open_sans_regular"
+                android:textColor="@color/st_patrick_blue"
+                android:textSize="14sp"
+                android:textAllCaps="true"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

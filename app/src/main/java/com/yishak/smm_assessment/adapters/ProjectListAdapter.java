@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.yishak.smm_assessment.R;
+import com.yishak.smm_assessment.model.BaseTransaction;
 import com.yishak.smm_assessment.model.Project;
 import java.util.List;
 
@@ -17,9 +18,9 @@ public class ProjectListAdapter extends BaseAdapter
 {
     private Context context;
     private LayoutInflater inflater;
-    private List<Project> projects;
+    private List<BaseTransaction> projects;
 
-    public ProjectListAdapter(Context context, List<Project> projects)
+    public ProjectListAdapter(Context context, List<BaseTransaction> projects)
     {
         this.context = context;
         this.projects = projects;
@@ -51,12 +52,12 @@ public class ProjectListAdapter extends BaseAdapter
         TextView projectName = rowView.findViewById(R.id.txtItemProjectName);
         TextView projectClient = rowView.findViewById(R.id.txtItemProjectClient);
         TextView date = rowView.findViewById(R.id.txtItemDateCreated);
-        TextView status = rowView.findViewById(R.id.txtItemStatus);
+        TextView stat = rowView.findViewById(R.id.txtItemStatus);
 
-        projectName.setText(projects.get(i).getProjectName());
-        projectClient.setText(projects.get(i).getProjectClient());
-        date.setText(projects.get(i).getDateCreated());
-        status.setText(projects.get(i).getStatus());
+        projectName.setText("Project - " + projects.get(i).getProjectName());
+        projectClient.setText("Client - " + projects.get(i).getProjectClient());
+        date.setText("Start Date - " + projects.get(i).getProjectStartDate());
+        stat.setText("Status - Assessment Completed");
 
         return rowView;
     }

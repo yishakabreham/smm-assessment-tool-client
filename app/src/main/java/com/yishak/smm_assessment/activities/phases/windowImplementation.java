@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.yishak.smm_assessment.R;
+import com.yishak.smm_assessment.common.Commons;
 import com.yishak.smm_assessment.common.Shared;
 import com.yishak.smm_assessment.interfaces.RadioButtonClickListener;
 import com.yishak.smm_assessment.network.pojo._SubPractice;
@@ -42,7 +43,7 @@ public class windowImplementation extends AppCompatActivity implements RadioButt
         setContentView(R.layout.activity_window_implementation);
 
         init();
-        inflateList(windowRequirements.implementationPhase.getPractices().get(0).getSubPractices());
+        inflateList(Commons.implementationPhase.getPractices().get(0).getSubPractices());
     }
     private void init()
     {
@@ -53,7 +54,7 @@ public class windowImplementation extends AppCompatActivity implements RadioButt
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        implementationPhaseSubPractices = windowRequirements.implementationPhase.getPractices().get(0).getSubPractices();
+        implementationPhaseSubPractices = Commons.implementationPhase.getPractices().get(0).getSubPractices();
 
         implementationPhaseListView = findViewById(R.id.lstImplementationPhase);
         btnNext = findViewById(R.id.fabImplementationNext);

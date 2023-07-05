@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@color/whiteSmock">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/custom_relative_layout"
-        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/whiteSmock"
         android:padding="10dp">
         <TextView
             android:id="@+id/txtItemProjectName"
@@ -16,8 +20,9 @@
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Project: "
-            android:textColor="@color/blueBlackDark"
-            android:textSize="16dp" />
+            android:textColor="@color/emerald_green"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
         <TextView
             android:id="@+id/txtItemProjectClient"
             android:layout_width="wrap_content"
@@ -26,8 +31,9 @@
             android:layout_alignLeft="@id/txtItemProjectName"
             android:fontFamily="@font/open_sans_regular"
             android:text="Client: "
-            android:textColor="@color/blueBlackDark"
-            android:textSize="14dp" />
+            android:textColor="@color/st_patrick_blue"
+            android:textSize="16dp" />
+
         <TextView
             android:id="@+id/txtItemDateCreated"
             android:layout_width="wrap_content"
@@ -36,8 +42,9 @@
             android:layout_alignLeft="@id/txtItemProjectName"
             android:fontFamily="@font/open_sans_regular"
             android:text="Date Created: "
-            android:textColor="@color/blueBlackDark"
-            android:textSize="14dp" />
+            android:textColor="@color/st_patrick_blue"
+            android:textSize="16dp" />
+
         <TextView
             android:id="@+id/txtItemStatus"
             android:layout_width="wrap_content"
@@ -46,7 +53,7 @@
             android:layout_alignLeft="@id/txtItemProjectName"
             android:fontFamily="@font/open_sans_regular"
             android:text="Status: "
-            android:textColor="@color/blueBlackDark"
-            android:textSize="14dp" />
+            android:textColor="@color/st_patrick_blue"
+            android:textSize="16dp" />
     </RelativeLayout>
 </RelativeLayout>

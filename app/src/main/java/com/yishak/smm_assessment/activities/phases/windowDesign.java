@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.yishak.smm_assessment.R;
+import com.yishak.smm_assessment.common.Commons;
 import com.yishak.smm_assessment.common.Shared;
 import com.yishak.smm_assessment.interfaces.RadioButtonClickListener;
 import com.yishak.smm_assessment.network.pojo._SubPractice;
@@ -54,7 +55,7 @@ public class windowDesign extends AppCompatActivity implements RadioButtonClickL
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        designPhaseSubPractices = windowRequirements.designPhase.getPractices().get(0).getSubPractices();
+        designPhaseSubPractices = Commons.designPhase.getPractices().get(0).getSubPractices();
 
         designPhaseListView = findViewById(R.id.lstDesignPhase);
         btnNext = findViewById(R.id.fabDesignNext);

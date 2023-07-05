@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.yishak.smm_assessment.R;
+import com.yishak.smm_assessment.activities.windowFinal;
 import com.yishak.smm_assessment.common.Commons;
 import com.yishak.smm_assessment.common.Shared;
 import com.yishak.smm_assessment.interfaces.RadioButtonClickListener;
@@ -53,7 +54,7 @@ public class windowTesting extends AppCompatActivity implements RadioButtonClick
         setContentView(R.layout.activity_window_testing);
 
         init();
-        inflateList(windowRequirements.testingPhase.getPractices().get(0).getSubPractices());
+        inflateList(Commons.testingPhase.getPractices().get(0).getSubPractices());
     }
 
     private void init()
@@ -65,7 +66,7 @@ public class windowTesting extends AppCompatActivity implements RadioButtonClick
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        testingPhaseSubPractices = windowRequirements.testingPhase.getPractices().get(0).getSubPractices();
+        testingPhaseSubPractices = Commons.testingPhase.getPractices().get(0).getSubPractices();
 
         testingPhaseListView = findViewById(R.id.lstTestingPhase);
         btnNext = findViewById(R.id.fabTestingNext);
@@ -86,11 +87,8 @@ public class windowTesting extends AppCompatActivity implements RadioButtonClick
                                     Shared.createBuffer(mapBuffer, testingPhaseSubPractices, "tE");
                                     post();
 
-                                    Toast.makeText(windowTesting.this, String.valueOf(Commons.commonBufferList.size()), Toast.LENGTH_SHORT).show();
-                                    for(Buffer buffer : Commons.commonBufferList)
-                                    {
-                                        Log.i(buffer.getType(), buffer.getCode() + " " + buffer.getiL());
-                                    }
+                                    Intent intent = new Intent(windowTesting.this, windowFinal.class);
+                                    startActivity(intent);
                                 }
                             })
                             .setNegativeButton("CHECK AGAIN", new DialogInterface.OnClickListener() {
@@ -131,21 +129,22 @@ public class windowTesting extends AppCompatActivity implements RadioButtonClick
         baseTransaction.setBufferList(Commons.commonBufferList);
 
         API.postTransaction().saveTransaction(baseTransaction)
-                .enqueue(new Callback<Boolean>() {
+                .enqueue(new Callback<BaseTransaction>() {
                     @Override
-                    public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                    public void onResponse(Call<BaseTransaction> call, Response<BaseTransaction> response) {
                         if(response.isSuccessful() && response.code() == 200)
                         {
-
+                            Log.i("Response", String.valueOf(response.body().get_id()));
+                            Commons.newProjectList.get(0).setId(String.valueOf(response.body().get_id()));
                         }
                         else{
-
+                            Log.i("Error", "Error");
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<Boolean> call, Throwable t) {
-
+                    public void onFailure(Call<BaseTransaction> call, Throwable t) {
+                        Log.i("Response", t.getMessage());
                     }
                 });
     }

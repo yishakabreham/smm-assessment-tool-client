@@ -69,7 +69,14 @@ public class windowCreateProject extends AppCompatActivity {
                         String.valueOf(txtProjectDate.getText()), String.valueOf(txtProjectEnd.getText()), String.valueOf(txtRemark.getText()));
                 if (isOk)
                 {
-                    newProject = new NewProject(pName, pClient, pSDate, pEDate, pRemark);
+                    newProject = new NewProject();
+
+                    newProject.setProjectName(pName);
+                    newProject.setProjectClient(pClient);
+                    newProject.setDateCreated(pSDate);
+                    newProject.setProjectEndDate(pEDate);
+                    newProject.setRemark(pRemark);
+
                     Commons.newProjectList.add(newProject);
 
                     Intent intent = new Intent(windowCreateProject.this, windowRequirements.class);

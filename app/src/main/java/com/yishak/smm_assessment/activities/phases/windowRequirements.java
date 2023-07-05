@@ -26,6 +26,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.yishak.smm_assessment.MainActivity;
 import com.yishak.smm_assessment.R;
+import com.yishak.smm_assessment.common.Commons;
 import com.yishak.smm_assessment.common.Shared;
 import com.yishak.smm_assessment.interfaces.RadioButtonClickListener;
 import com.yishak.smm_assessment.model.Buffer;
@@ -44,12 +45,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class windowRequirements extends AppCompatActivity implements RadioButtonClickListener{
-    public static ArrayList<_Phase> phaseList;
-    public static _Phase requirementEngineeringPhase;
-    public static _Phase designPhase;
-    public static _Phase implementationPhase;
-    public static _Phase deploymentPhase;
-    public static _Phase testingPhase;
     private ListView subPracticeListView;
     private RequirementsPhaseListAdapter adapter;
     private ExtendedFloatingActionButton btnNext;
@@ -91,7 +86,7 @@ public class windowRequirements extends AppCompatActivity implements RadioButton
                             .setPositiveButton("PROCEED", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    Shared.createBuffer(mapBuffer, requirementEngineeringPhase.getPractices().get(0).getSubPractices(), "rE");
+                                    Shared.createBuffer(mapBuffer, Commons.requirementEngineeringPhase.getPractices().get(0).getSubPractices(), "rE");
                                     Intent intent = new Intent(windowRequirements.this, windowDesign.class);
                                     startActivity(intent);
                                 }
@@ -132,44 +127,46 @@ public class windowRequirements extends AppCompatActivity implements RadioButton
                 return super.onOptionsItemSelected(item);
         }
     }
-    private void details(){
+
+    public void details(){
+        Commons.phaseList = new ArrayList<>();
         API.detail().getDetails()
                 .enqueue(new Callback<ArrayList<_Phase>>() {
                     @Override
                     public void onResponse(Call<ArrayList<_Phase>> call, Response<ArrayList<_Phase>> response) {
                         if(response.isSuccessful() && response.code() == 200)
                         {
-                            phaseList = response.body();
-                            if(phaseList != null && phaseList.size() > 0)
+                            Commons.phaseList = response.body();
+                            if(Commons.phaseList != null && Commons.phaseList.size() > 0)
                             {
-                                for (int i = 0; i < phaseList.size(); i++)
+                                for (int i = 0; i < Commons.phaseList.size(); i++)
                                 {
-                                    String phaseLabel = phaseList.get(i).getName();
+                                    String phaseLabel = Commons.phaseList.get(i).getName();
                                     if(phaseLabel != null){
                                         switch (phaseLabel)
                                         {
                                             case "requirement_engineering":
-                                                requirementEngineeringPhase = phaseList.get(i);
+                                                Commons.requirementEngineeringPhase = Commons.phaseList.get(i);
                                                 break;
                                             case "design":
-                                                designPhase = phaseList.get(i);
+                                                Commons.designPhase = Commons.phaseList.get(i);
                                                 break;
                                             case "implementation":
-                                                implementationPhase = phaseList.get(i);
+                                                Commons.implementationPhase = Commons.phaseList.get(i);
                                                 break;
                                             case "deployment":
-                                                deploymentPhase = phaseList.get(i);
+                                                Commons.deploymentPhase = Commons.phaseList.get(i);
                                                 break;
                                             case "testing":
-                                                testingPhase = phaseList.get(i);
+                                                Commons.testingPhase = Commons.phaseList.get(i);
                                                 break;
                                         }
                                     }
                                 }
-                            }
-                            if(requirementEngineeringPhase != null)
-                            {
-                                inflateList(requirementEngineeringPhase.getPractices().get(0).getSubPractices());
+                                if(Commons.requirementEngineeringPhase != null)
+                                {
+                                    inflateList(Commons.requirementEngineeringPhase.getPractices().get(0).getSubPractices());
+                                }
                             }
                         }
                     }
@@ -190,7 +187,7 @@ public class windowRequirements extends AppCompatActivity implements RadioButton
     @Override
     public void onRadioButtonClicked(int count, HashMap<Integer, String> map)
     {
-        int total = requirementEngineeringPhase.getPractices().get(0).getSubPractices().size();
+        int total = Commons.requirementEngineeringPhase.getPractices().get(0).getSubPractices().size();
         TextView textView = findViewById(R.id.txtSubInformationCounter);
 
         mapBuffer = map;
