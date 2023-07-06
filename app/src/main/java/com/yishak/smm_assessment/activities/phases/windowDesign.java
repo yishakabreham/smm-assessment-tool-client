@@ -38,6 +38,9 @@ public class windowDesign extends AppCompatActivity implements RadioButtonClickL
     private DesignPhaseListAdapter adapter;
     private HashMap<Integer, String> mapBuffer;
     private List<_SubPractice> designPhaseSubPractices;
+
+    TextView textView;
+    int total = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +62,7 @@ public class windowDesign extends AppCompatActivity implements RadioButtonClickL
 
         designPhaseListView = findViewById(R.id.lstDesignPhase);
         btnNext = findViewById(R.id.fabDesignNext);
+        textView = findViewById(R.id.txtDesignInformationCounter);
 
         mapBuffer = new HashMap<>();
         btnNext.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +109,10 @@ public class windowDesign extends AppCompatActivity implements RadioButtonClickL
     {
         adapter = new DesignPhaseListAdapter(getApplicationContext(), subPractices, this);
         designPhaseListView.setAdapter(adapter);
+
+        total = subPractices.size();
+        textView.setText(0 + "/" + total + " selected - not complete");
+        textView.setTextColor(Color.RED);
     }
 
     @Override

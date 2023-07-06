@@ -16,6 +16,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.windowBestPractices"
+            android:exported="false" />
+        <activity
+            android:name=".activities.windowRecommendation"
+            android:exported="false" />
+        <activity
             android:name=".activities.windowResult"
             android:exported="false" />
         <activity
@@ -42,7 +48,8 @@
             android:theme="@style/MyMaterialTheme" />
         <activity
             android:name=".activities.windowLogin"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/MyMaterialTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

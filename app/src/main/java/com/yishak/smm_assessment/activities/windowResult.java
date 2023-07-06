@@ -1,5 +1,7 @@
 package com.yishak.smm_assessment.activities;
 
+import static com.yishak.smm_assessment.common.Commons.bT;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -7,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -44,7 +47,7 @@ public class windowResult extends AppCompatActivity {
     private PhaseAdapter adapter;
     private ListView phaseListView;
     private ArrayList<PhaseAdapterDto> phaseAdapterDtoArrayList;
-    private ExtendedFloatingActionButton btnFinish;
+//    private ExtendedFloatingActionButton btnFinish;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +67,7 @@ public class windowResult extends AppCompatActivity {
         endDate = findViewById(R.id.txtResultEndDate);
 
         overallResult = findViewById(R.id.txtOverllML);
-        btnFinish = findViewById(R.id.fabResultFinish);
+//        btnFinish = findViewById(R.id.fabResultFinish);
 
         Toolbar toolbar = findViewById(R.id.tbResult);
         toolbar.setTitle("Assessment Result");
@@ -77,29 +80,40 @@ public class windowResult extends AppCompatActivity {
         phaseListView = findViewById(R.id.lstResultList);
 
         if(Commons.phaseList != null) phases = Commons.phaseList;
-        if(Commons.projectUnderConstruction == null) details();
-        else baseTransaction = Commons.projectUnderConstruction;
+        if(Commons.projectUnderConstruction.get_id() == null) {
+            getAllProjects();
+        }
+        else {baseTransaction = Commons.projectUnderConstruction;}
 
-        btnFinish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(windowResult.this, windowDashboard.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-            }
-        });
+//        btnFinish.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(windowResult.this, windowDashboard.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     private void inflate()
     {
         adapter = new PhaseAdapter(this, phaseAdapterDtoArrayList);
         phaseListView.setAdapter(adapter);
+
+        phaseListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                PhaseAdapterDto dto = (PhaseAdapterDto)adapter.getItem(i);
+                Intent intent = new Intent(windowResult.this, windowBestPractices.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void businessLogic()
     {
         projectName.setText("Project - " + baseTransaction.getProjectName());
-        clientName.setText("Client - " + baseTransaction.getProjectName());
+        clientName.setText("Client - " + baseTransaction.getProjectClient());
         startDate.setText("Start - " + baseTransaction.getProjectStartDate());
         endDate.setText("Status - Assessment Completed" );
 
@@ -154,6 +168,7 @@ public class windowResult extends AppCompatActivity {
 
             inflate();
         }
+        else overallResult.setText("Level - **** : Error");
     }
 
     private int refactored(List<Business> businessList, String type)
@@ -259,7 +274,7 @@ public class windowResult extends AppCompatActivity {
                 dto.setName("Deployment");
                 break;
             case "tE":
-                dto.setName("Tetsing");
+                dto.setName("Testing");
                 break;
         }
         dto.setCode("0");
@@ -355,7 +370,12 @@ public class windowResult extends AppCompatActivity {
 
     private void details(){
         _project project = new _project();
-        project.setId(String.valueOf(Commons.newProjectList.get(0).getId()));
+
+        String id;
+        if(Commons.newProjectList.size() == 1) id = String.valueOf(Commons.newProjectList.get(0).getId());
+        else id = Commons.projectId;
+
+        project.setId(id);
 
         API.getProject().getProject(project)
                 .enqueue(new Callback<BaseTransaction>() {
@@ -372,6 +392,28 @@ public class windowResult extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<BaseTransaction> call, Throwable t) {
+                        Log.i("Error", t.getMessage());
+                    }
+                });
+
+    }
+    private void getAllProjects(){
+        API.getAllProjects().getAllProjects()
+                .enqueue(new Callback<ArrayList<BaseTransaction>>() {
+                    @Override
+                    public void onResponse(Call<ArrayList<BaseTransaction>> call, Response<ArrayList<BaseTransaction>> response) {
+                        if(response.isSuccessful() && response.code() == 200)
+                        {
+                            Commons.bT = response.body();
+                            baseTransaction = Commons.bT.stream().filter(x -> x.get_id().equals(Commons.projectId)).findFirst().get();
+                        }
+                        else{
+                            Log.i("Error", "Error");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<BaseTransaction>> call, Throwable t) {
                         Log.i("Response", t.getMessage());
                     }
                 });

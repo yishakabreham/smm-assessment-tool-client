@@ -33,7 +33,7 @@
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="123dp"
+                android:layout_height="125dp"
                 android:layout_toRightOf="@id/rlUserPhoto"
                 android:background="@drawable/custom_relative_layout">
                 <RelativeLayout
@@ -47,9 +47,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/open_sans_regular"
-                        android:text="Vincit"
-                        android:textColor="@color/st_patrick_blue"
-                        android:textSize="20dp"
+                        android:text="VINCIT"
+                        android:textColor="@color/lightRedColor"
+                        android:textSize="24dp"
                         android:textStyle="bold" />
                     <TextView
                         android:id="@+id/userNTV"
@@ -145,25 +145,25 @@
             android:id="@+id/fabTest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:backgroundTint="@color/emerald_green"
             android:text="To Assessment"
             android:textColor="@color/white"
             app:iconTint="@color/white"
             android:theme="@style/MyMaterialTheme"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:layout_marginRight="5dp"/>
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/fabOut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:layout_toRightOf="@id/fabTest"
-            android:backgroundTint="@color/lightRedColor"
-            android:text="Logout"
+            android:backgroundTint="@color/emerald_green"
+            android:text="Best Practices"
             android:textColor="@color/white"
             app:iconTint="@color/white"
             android:theme="@style/MyMaterialTheme"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:layout_marginLeft="5dp"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_height="match_parent"

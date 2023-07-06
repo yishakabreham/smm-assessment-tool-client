@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.windowBestPractices">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbBest"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_size"
+        android:theme="@style/ToolBarStyle"
+        android:background="@color/colorPrimary">
+    </androidx.appcompat.widget.Toolbar>
+    <ExpandableListView
+        android:id="@+id/elvInvestments"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:layout_below="@id/tbBest"/>
+</RelativeLayout>

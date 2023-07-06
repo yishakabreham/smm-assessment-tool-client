@@ -39,7 +39,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/open_sans_regular"
-            android:text="This window displays a list of practices within the design phase. Before moving on to the next phase, please ensure that you have completed the selection."
+            android:text="This window displays a list of practices within the deployment phase. Before moving on to the next phase, please ensure that you have completed the selection."
             android:textColor="@color/blueBlackDark"
             android:textSize="14dp"
             android:textStyle="bold"

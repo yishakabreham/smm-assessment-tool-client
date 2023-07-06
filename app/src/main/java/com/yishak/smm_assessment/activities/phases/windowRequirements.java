@@ -26,6 +26,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.yishak.smm_assessment.MainActivity;
 import com.yishak.smm_assessment.R;
+import com.yishak.smm_assessment.activities.windowCreateProject;
 import com.yishak.smm_assessment.common.Commons;
 import com.yishak.smm_assessment.common.Shared;
 import com.yishak.smm_assessment.interfaces.RadioButtonClickListener;
@@ -50,6 +51,8 @@ public class windowRequirements extends AppCompatActivity implements RadioButton
     private ExtendedFloatingActionButton btnNext;
     private TextView counter;
     private HashMap<Integer, String> mapBuffer;
+    TextView textView;
+    int total = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,13 +74,13 @@ public class windowRequirements extends AppCompatActivity implements RadioButton
         subPracticeListView = findViewById(R.id.lstSubPractices);
         btnNext = findViewById(R.id.fabSubNext);
 
-        counter = findViewById(R.id.txtSubInformationCounter);
         mapBuffer = new HashMap<>();
 
+        textView = findViewById(R.id.txtSubInformationCounter);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean isOk = validate();
+                boolean isOk = validate(mapBuffer.size());
                 if (isOk)
                 {
                     new MaterialAlertDialogBuilder(windowRequirements.this, R.style.AlertDialogTheme)
@@ -101,26 +104,35 @@ public class windowRequirements extends AppCompatActivity implements RadioButton
                 }
                 else
                 {
-                    //show something to the user
+                    new MaterialAlertDialogBuilder(windowRequirements.this, R.style.AlertDialogTheme)
+                            .setTitle("Error")
+                            .setMessage("Please ensure that you answered all the questions.")
+                            .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+
+                                }
+                            })
+                            .show();
                 }
             }
         });
     }
-    private boolean validate(){
+    private boolean validate(int number){
         //do validation here
-        boolean validated = true;
+        boolean validated = false;
 
-        if(validated) return true;
-        else return false;
+        if(number == 11) validated = true;
+        return validated;
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                Intent intent = new Intent(windowRequirements.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                finish();
+//                Intent intent = new Intent(windowRequirements.this, MainActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+//                finish();
                 return true;
 
             default:
@@ -166,6 +178,10 @@ public class windowRequirements extends AppCompatActivity implements RadioButton
                                 if(Commons.requirementEngineeringPhase != null)
                                 {
                                     inflateList(Commons.requirementEngineeringPhase.getPractices().get(0).getSubPractices());
+
+                                    total = Commons.requirementEngineeringPhase.getPractices().get(0).getSubPractices().size();
+                                    textView.setText(0 + "/" + total + " selected - not complete");
+                                    textView.setTextColor(Color.RED);
                                 }
                             }
                         }
@@ -187,9 +203,6 @@ public class windowRequirements extends AppCompatActivity implements RadioButton
     @Override
     public void onRadioButtonClicked(int count, HashMap<Integer, String> map)
     {
-        int total = Commons.requirementEngineeringPhase.getPractices().get(0).getSubPractices().size();
-        TextView textView = findViewById(R.id.txtSubInformationCounter);
-
         mapBuffer = map;
 
         if(total > count)

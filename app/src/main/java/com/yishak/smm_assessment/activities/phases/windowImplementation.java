@@ -37,6 +37,9 @@ public class windowImplementation extends AppCompatActivity implements RadioButt
     private ImplementationPhaseListAdapter adapter;
     private HashMap<Integer, String> mapBuffer;
     private List<_SubPractice> implementationPhaseSubPractices;
+
+    TextView textView;
+    int total = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +61,7 @@ public class windowImplementation extends AppCompatActivity implements RadioButt
 
         implementationPhaseListView = findViewById(R.id.lstImplementationPhase);
         btnNext = findViewById(R.id.fabImplementationNext);
+        textView = findViewById(R.id.txtImplementationInformationCounter);
 
         mapBuffer = new HashMap<>();
         btnNext.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +109,10 @@ public class windowImplementation extends AppCompatActivity implements RadioButt
     {
         adapter = new ImplementationPhaseListAdapter(getApplicationContext(), subPractices, this);
         implementationPhaseListView.setAdapter(adapter);
+
+        total = subPractices.size();
+        textView.setText(0 + "/" + total + " selected - not complete");
+        textView.setTextColor(Color.RED);
     }
 
     @Override

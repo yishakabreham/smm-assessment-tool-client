@@ -15,11 +15,11 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tbCreateProject">
+        android:layout_below="@id/tbCreateProject"
+        android:layout_marginTop="10dp">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp">
+            android:layout_height="match_parent">
             <RelativeLayout
                 android:id="@+id/rlTin"
                 android:layout_width="match_parent"
@@ -41,7 +41,8 @@
                         android:fontFamily="@font/open_sans_regular"
                         android:text="Project Name *"
                         android:textColor="@color/blueBlackDark"
-                        android:textSize="16dp" />
+                        android:textSize="20dp"
+                        android:textStyle="bold"/>
                     <ImageView
                         android:id="@+id/imageSearch"
                         android:layout_width="30dp"
@@ -60,7 +61,7 @@
                         android:fontFamily="@font/open_sans_regular"
                         android:maxLength="25"
                         android:hint="Enter Name of the Project"
-                        android:textSize="16dp"
+                        android:textSize="18dp"
                         android:gravity="center|left"
                         android:textColor="@color/blueBlack"/>
                 </RelativeLayout>
@@ -87,7 +88,8 @@
                         android:fontFamily="@font/open_sans_regular"
                         android:text="Client *"
                         android:textColor="@color/blueBlackDark"
-                        android:textSize="16dp" />
+                        android:textSize="20dp"
+                        android:textStyle="bold"/>
                     <ImageView
                         android:id="@+id/imageUser"
                         android:layout_width="30dp"
@@ -106,7 +108,7 @@
                         android:fontFamily="@font/open_sans_regular"
                         android:hint="Enter Name of the Client"
                         android:maxLength="25"
-                        android:textSize="16dp"
+                        android:textSize="18dp"
                         android:gravity="center|left"
                         android:textColor="@color/blueBlack"/>
                 </RelativeLayout>
@@ -132,7 +134,8 @@
                         android:textColor="@color/blueBlackDark"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="20dp"
-                        android:textSize="16dp"/>
+                        android:textSize="20dp"
+                        android:textStyle="bold"/>
                     <ImageView
                         android:id="@+id/imagePassword"
                         android:layout_width="30dp"
@@ -148,7 +151,7 @@
                         android:layout_marginLeft="20dp"
                         android:hint="Enter Project Kickoff Date"
                         android:fontFamily="@font/open_sans_regular"
-                        android:textSize="16dp"
+                        android:textSize="18dp"
                         android:textColor="@color/blueBlack"
                         android:background="@android:color/transparent"
                         android:textCursorDrawable="@null"
@@ -182,7 +185,8 @@
                         android:textColor="@color/blueBlackDark"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="20dp"
-                        android:textSize="16dp"/>
+                        android:textSize="20dp"
+                        android:textStyle="bold"/>
                     <ImageView
                         android:id="@+id/imagePhone"
                         android:layout_width="30dp"
@@ -198,7 +202,7 @@
                         android:layout_marginLeft="20dp"
                         android:hint="Enter Project Date of Completion"
                         android:fontFamily="@font/open_sans_regular"
-                        android:textSize="16dp"
+                        android:textSize="18dp"
                         android:background="@android:color/transparent"
                         android:textCursorDrawable="@null"
                         android:layout_alignTop="@id/imagePhone"
@@ -230,7 +234,8 @@
                         android:textColor="@color/blueBlackDark"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="20dp"
-                        android:textSize="16dp"/>
+                        android:textSize="20dp"
+                        android:textStyle="bold"/>
                     <ImageView
                         android:id="@+id/imageOther"
                         android:layout_width="30dp"
@@ -246,7 +251,7 @@
                         android:layout_marginLeft="20dp"
                         android:hint="Enter Additional Information"
                         android:fontFamily="@font/open_sans_regular"
-                        android:textSize="16dp"
+                        android:textSize="18dp"
                         android:background="@android:color/transparent"
                         android:textCursorDrawable="@null"
                         android:layout_alignTop="@id/imageOther"
@@ -258,19 +263,18 @@
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                 android:id="@+id/fabCreateProject"
                 android:layout_below="@id/rlOther"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="@color/st_patrick_blue"
                 android:text="Proceed to assessment"
                 android:textColor="@color/white"
                 app:iconTint="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:theme="@style/MyMaterialTheme"
-                android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:textSize="18dp"
+                android:layout_marginLeft="80dp"/>
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

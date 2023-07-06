@@ -19,4 +19,6 @@ public class Commons
     public static _Phase implementationPhase;
     public static _Phase deploymentPhase;
     public static _Phase testingPhase;
+    public static String projectId;
+    public static List<BaseTransaction> bT;
 }

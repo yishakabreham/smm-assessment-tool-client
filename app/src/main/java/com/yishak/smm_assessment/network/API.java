@@ -21,7 +21,7 @@ public class API
 
         retrofit = new Retrofit.Builder()
                 .client(client)
-                .baseUrl("http://192.168.0.100:3000/api/")
+                .baseUrl("https://smm-toolkit-server-8bb06e29346b.herokuapp.com/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -42,7 +42,7 @@ public class API
 
         retrofit = new Retrofit.Builder()
                 .client(client)
-                .baseUrl("http://192.168.0.100:3000/api/")
+                .baseUrl("https://smm-toolkit-server-8bb06e29346b.herokuapp.com/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -64,7 +64,7 @@ public class API
 
         retrofit = new Retrofit.Builder()
                 .client(client)
-                .baseUrl("http://192.168.0.100:3000/api/")
+                .baseUrl("https://smm-toolkit-server-8bb06e29346b.herokuapp.com/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -85,7 +85,7 @@ public class API
 
         retrofit = new Retrofit.Builder()
                 .client(client)
-                .baseUrl("http://192.168.0.100:3000/api/")
+                .baseUrl("https://smm-toolkit-server-8bb06e29346b.herokuapp.com/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

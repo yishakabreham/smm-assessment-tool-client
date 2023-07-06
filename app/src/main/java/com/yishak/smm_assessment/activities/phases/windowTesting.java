@@ -48,6 +48,8 @@ public class windowTesting extends AppCompatActivity implements RadioButtonClick
     private TestingPhaseListAdapter adapter;
     private HashMap<Integer, String> mapBuffer;
     private List<_SubPractice> testingPhaseSubPractices;
+    TextView textView;
+    int total = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +72,7 @@ public class windowTesting extends AppCompatActivity implements RadioButtonClick
 
         testingPhaseListView = findViewById(R.id.lstTestingPhase);
         btnNext = findViewById(R.id.fabTestingNext);
+        textView = findViewById(R.id.txtTestingInformationCounter);
 
         mapBuffer = new HashMap<>();
         btnNext.setOnClickListener(new View.OnClickListener() {
@@ -135,7 +138,10 @@ public class windowTesting extends AppCompatActivity implements RadioButtonClick
                         if(response.isSuccessful() && response.code() == 200)
                         {
                             Log.i("Response", String.valueOf(response.body().get_id()));
-                            Commons.newProjectList.get(0).setId(String.valueOf(response.body().get_id()));
+                            Commons.projectId = String.valueOf(response.body().get_id());
+                            Commons.newProjectList = new ArrayList<>();
+                            Commons.commonBufferList = new ArrayList<>();
+                            //Commons.newProjectList.get(0).setId(String.valueOf(response.body().get_id()));
                         }
                         else{
                             Log.i("Error", "Error");
@@ -153,12 +159,9 @@ public class windowTesting extends AppCompatActivity implements RadioButtonClick
         adapter = new TestingPhaseListAdapter(getApplicationContext(), subPractices, this);
         testingPhaseListView.setAdapter(adapter);
 
-        testingPhaseListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-            }
-        });
+        total = subPractices.size();
+        textView.setText(0 + "/" + total + " selected - not complete");
+        textView.setTextColor(Color.RED);
     }
 
     @Override

@@ -20,8 +20,8 @@
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Project: "
-            android:textColor="@color/emerald_green"
-            android:textSize="18dp"
+            android:textColor="@color/greenColor"
+            android:textSize="20dp"
             android:textStyle="bold"/>
         <TextView
             android:id="@+id/txtItemProjectClient"

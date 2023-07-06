@@ -1,6 +1,7 @@
 package com.yishak.smm_assessment.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,10 +28,17 @@ public class windowFinal extends AppCompatActivity {
         result = findViewById(R.id.fabShowResult);
         home = findViewById(R.id.fabHome);
 
+        Toolbar toolbar = findViewById(R.id.tbFinal);
+        toolbar.setTitle("Congratulations");
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(windowFinal.this, windowResult.class);
+                Intent intent = new Intent(windowFinal.this, windowDashboard.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }

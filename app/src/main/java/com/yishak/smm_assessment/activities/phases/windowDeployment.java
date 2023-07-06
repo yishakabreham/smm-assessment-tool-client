@@ -38,6 +38,9 @@ public class windowDeployment extends AppCompatActivity implements RadioButtonCl
     private DeploymentPhaseListAdapter adapter;
     private HashMap<Integer, String> mapBuffer;
     private List<_SubPractice> deploymentPhaseSubPractices;
+
+    TextView textView;
+    int total = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +63,7 @@ public class windowDeployment extends AppCompatActivity implements RadioButtonCl
 
         deploymentPhaseListView = findViewById(R.id.lstDeploymentPhase);
         btnNext = findViewById(R.id.fabDeploymentNext);
+        textView = findViewById(R.id.txtDeploymentInformationCounter);
 
         mapBuffer = new HashMap<>();
         btnNext.setOnClickListener(new View.OnClickListener() {
@@ -107,6 +111,10 @@ public class windowDeployment extends AppCompatActivity implements RadioButtonCl
     {
         adapter = new DeploymentPhaseListAdapter(getApplicationContext(), subPractices, this);
         deploymentPhaseListView.setAdapter(adapter);
+
+        total = subPractices.size();
+        textView.setText(0 + "/" + total + " selected - not complete");
+        textView.setTextColor(Color.RED);
     }
 
     @Override
