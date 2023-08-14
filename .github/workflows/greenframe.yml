@@ -10,10 +10,6 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all the git history to enable git comparison
           
-      - name: Set up JDK
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'
       - name: Build and test
         run: ./gradlew build
         
