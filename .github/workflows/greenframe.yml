@@ -3,15 +3,12 @@ on: [push]
 jobs:
   greenframeci:
     runs-on: ubuntu-latest
-    name: GreenFrame
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
-          fetch-depth: 0 # Fetch all the git history to enable git comparison
-          
-      
-      - name: GreenFrame Analysis
-        uses: marmelab/greenframe-action@1.0.0
+          fetch-depth: 0 # Fetch all the git history
+      - run: curl https://assets.greenframe.io/install.sh | bash
+      # Start your application here
+      - run: greenframe analyze
         env:
           GREENFRAME_SECRET_TOKEN: ${{secrets.GREENFRAME_SECRET_TOKEN}}
