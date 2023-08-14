@@ -3,12 +3,21 @@ on: [push]
 jobs:
   greenframeci:
     runs-on: ubuntu-latest
+    name: GreenFrame
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          fetch-depth: 0 # Fetch all the git history
-      - run: curl https://assets.greenframe.io/install.sh | bash
-      # Start your application here
-      - run: greenframe analyze
+          fetch-depth: 0 # Fetch all the git history to enable git comparison
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Start project
+        run: |
+          make install
+          make start
+      - name: GreenFrame Analysis
+        uses: marmelab/greenframe-action@1.0.0
         env:
-          GREENFRAME_SECRET_TOKEN: ${{secrets.GREENFRAME_SECRET_TOKEN}}
+          GREENFRAME_SECRET_TOKEN: ${{secrets.GREENFRAME_SECRET_TOKEN}
