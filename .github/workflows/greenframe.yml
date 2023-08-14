@@ -1,32 +1,23 @@
-name: GreenFrame Workflow
-
-on:
-  push:
-    branches:
-      - main
-
+name: Greenframe Analysis
+on: [push]
 jobs:
-  build:
+  greenframeci:
     runs-on: ubuntu-latest
-
+    name: GreenFrame
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
         with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
-        run: npm test
-
-      - name: Deploy to production
+          fetch-depth: 0 # Fetch all the git history to enable git comparison
+          
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+      - name: Build and test
+        run: ./gradlew build
+        
+      - name: GreenFrame Analysis
+        uses: marmelab/greenframe-action@1.0.0
         env:
-          GREENFRAME_SECRET_TOKEN: ${{ secrets.GREENFRAME_SECRET_TOKEN }}
-        run: |
-          # Use the secret in your deployment process
-          echo "Deploying with the secret: $GREENFRAME_SECRET_TOKEN"
+          GREENFRAME_SECRET_TOKEN: ${{secrets.GREENFRAME_SECRET_TOKEN}}
