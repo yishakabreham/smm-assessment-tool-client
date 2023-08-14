@@ -20,4 +20,4 @@ jobs:
       - name: GreenFrame Analysis
         uses: marmelab/greenframe-action@1.0.0
         env:
-          GREENFRAME_SECRET_TOKEN: ${{secrets.GREENFRAME_SECRET_TOKEN}
+          GREENFRAME_SECRET_TOKEN: ${{secrets.GREENFRAME_SECRET_TOKEN}}
