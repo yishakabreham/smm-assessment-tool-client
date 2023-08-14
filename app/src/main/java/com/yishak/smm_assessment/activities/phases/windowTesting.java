@@ -78,7 +78,8 @@ public class windowTesting extends AppCompatActivity implements RadioButtonClick
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean isOk = validate();
+//                boolean isOk = validate();
+                boolean isOk = true;
                 if (isOk)
                 {
                     new MaterialAlertDialogBuilder(windowTesting.this, R.style.AlertDialogTheme)
