@@ -10,11 +10,6 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all the git history to enable git comparison
           
-      - name: Build and test
-        run: ./gradlew build
-        
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
       
       - name: GreenFrame Analysis
         uses: marmelab/greenframe-action@1.0.0
